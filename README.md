@@ -50,8 +50,8 @@ __NOTICE__: this is a fullstack project for my course CISC6345 Advanced Database
 
 ### Developing time distribution
 I used total around 38 hours to get this done.
-* frontend: 10hr
-* crawling: 10hr
-* backend: 10hr
+* frontend: 12hr
+* crawling: 6hr
+* backend: 12hr
 * auth0: 8hr
 
