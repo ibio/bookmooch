@@ -18,7 +18,7 @@ export default class BookModel extends ProxyModel {
 	}
 
 	getLatestBookList(limit, silent, callback, scope){
-		const url = Config.URL_LATEST_BOOKS + '&length=' + limit;
+		const url = Config.URL_LATEST_BOOKS + '?length=' + limit;
 		this.get(url, null, function(response){
 			response = response || {};
 			this.latestBookList = this._createBookList(response.data);
@@ -34,7 +34,7 @@ export default class BookModel extends ProxyModel {
 	// NOTICE: start starts from 0; page start from 1
 	getBookList(limit, page, silent, callback, scope){
 		const start = (page - 1) * limit;
-		const url = Config.URL_BOOKS + '&length=' + limit + '&start=' + start;
+		const url = Config.URL_BOOKS + '?length=' + limit + '&start=' + start;
 		this.get(url, null, function(response){
 			var list;
 			response = response || {};
@@ -52,7 +52,7 @@ export default class BookModel extends ProxyModel {
 
 	searchBookList(keyword, limit, page, silent, callback, scope){
 		const start = (page - 1) * limit;
-		const url = Config.URL_SEARCH_BOOKS + '&keyword=' + keyword + '&length=' + limit + '&start=' + start;
+		const url = Config.URL_SEARCH_BOOKS + '?keyword=' + keyword + '&length=' + limit + '&start=' + start;
 		this.get(url, null, function(response) {
 			var data, list;
 			response = response || {};
@@ -72,7 +72,7 @@ export default class BookModel extends ProxyModel {
 
 	searchBookListByTag(keyword, limit, page, silent, callback, scope){
 		const start = (page - 1) * limit;
-		const url = Config.URL_BOOKS + '&length=' + limit + '&start=' + start;
+		const url = Config.URL_BOOKS + '?length=' + limit + '&start=' + start;
 		this.get(url, null, function(response) {
 			var list;
 			response = response || {};
@@ -88,24 +88,8 @@ export default class BookModel extends ProxyModel {
 		}, this);
 	}
 
-	/*
-	getPostListByAuthor(authors, limit, page, silent, callback, scope){
-		const url = Config.URL_POSTS + '?author=' + authors.join(',') + '&per_page=' + limit + '&page=' + page;
-		this.get(url, null, function(response) {
-			response = response || [];
-			// TODO: need to rethink the corresponding post name
-			this.authorPostList = this._createPostList(response);
-			if(!silent){
-				this.notify();
-			}
-			callback && callback.call(scope);
-		}, function(response){
-			// "status":false,"code":401,
-		}, this);
-	}*/
-
 	getBookDetail(id, silent, callback, scope){
-		const url = Config.URL_GET_BOOK + '&id=' + id;
+		const url = Config.URL_GET_BOOK + '?id=' + id;
 		this.get(url, null, function(response) {
 			var list;
 			response = response || {};

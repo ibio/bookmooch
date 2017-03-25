@@ -10,7 +10,7 @@ class OrderModel extends DAO{
   function __construct($db) {
     $fields = array(
       'id' => 'INT',
-      'uid' => 'INT',
+      'uid' => 'VARCHAR',
       'phone' => 'VARCHAR',
       'name' => 'VARCHAR',
       'address' => 'VARCHAR',
@@ -28,7 +28,7 @@ class OrderModel extends DAO{
   
   public function add($uid, $grandTotal, $content){
     $fields = array(
-      'uid' => intval($uid),
+      'uid' => $uid,
       'grand_total' => floatval($grandTotal),
       'content' => $content,
       'date' => 'now()'
@@ -42,16 +42,16 @@ class OrderModel extends DAO{
       'grand_total' => floatval($grandTotal),
       'content' => $content,
     );
-    return $this->update($fields, '`id`='.intval($id).' AND `uid`='.intval($uid), array('content' => true));
+    return $this->update($fields, '`id`='.intval($id)." AND `uid`='$uid'", array('content' => true));
   }
 
   public function deleteById($id, $uid){
     $id = $this->filterXSS($id);
-    return $this->delete('`id`='.intval($id).' AND `uid`='.intval($uid));
+    return $this->delete('`id`='.intval($id)." AND `uid`='$uid'");
   }
 
   public function getByUid($uid){
-    return $this->formatItem($this->query(null, '`uid`='.intval($uid), '`id` DESC'));
+    return $this->formatItem($this->query(null, "`uid`='$uid'", '`id` DESC'));
   }
 
   protected function formatItem($row){

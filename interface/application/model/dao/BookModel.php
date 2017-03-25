@@ -58,20 +58,24 @@ class BookModel extends DAO{
   }*/
 
   public function get($start, $length){
-    //
     $count = $this->count('id');
     $totalItems = $count;
     $totalPages = ceil($count / $length);
 
+    if($length > 1){
+      $list = $this->getItems($this->query('*', null, null, $start, $length));
+    // if it's only one result
+    }else{
+      $list = [$this->formatItem($this->query('*', null, null, $start, $length))];
+    }
     //
     return array('totalItems' => $totalItems, 
                  'totalPages' => $totalPages, 
-                 'list' => $this->getItems($this->query('*', null, null, $start, $length)),
+                 'list' => $list,
                 );
   }
 
   public function getById($id){
-    $this->convertSubjects($row['subjects']);
     $result = array();
     if(isset($id)){
       $id = intval($id);
@@ -82,7 +86,13 @@ class BookModel extends DAO{
 
   public function getLatest($length){
     //
-    return $this->getItems($this->query('*', null, '`id` DESC', 0, $length));
+    if($length > 1){
+      $list = $this->getItems($this->query('*', null, '`id` DESC', 0, $length));
+    // if it's only one result
+    }else{
+      $list = [$this->formatItem($this->query('*', null, '`id` DESC', 0, $length))];
+    }
+    return $list;
   }
 
   public function search($keyword, $start, $length){
@@ -92,9 +102,16 @@ class BookModel extends DAO{
     $totalItems = $count;
     $totalPages = ceil($count / $length);
 
+    if($length > 1){
+      $list = $this->getItems($this->query('*', $where, null, $start, $length));
+    // if it's only one result
+    }else{
+      $list = [$this->formatItem($this->query('*', $where, null, $start, $length))];
+    }
+
     return array('totalItems' => $totalItems, 
                  'totalPages' => $totalPages, 
-                 'list' => $this->getItems($this->query('*', $where, null, $start, $length)),
+                 'list' => $list,
                 );
   }
 
@@ -123,18 +140,17 @@ class BookModel extends DAO{
       $list = array();
     }
     foreach($list as $row) {
-      $row['subjects'] = $this->convertSubjects($row['subjects']);
-      array_push($result, $row);
+      array_push($result, $this->formatItem($row));
     }
     return $result;
   }
 
-  protected function convertSubjects($subjects){
-    $list = array();
-    if(isset($subjects)){
-      $list = explode(',', $subjects);
+  protected function formatItem($row){
+    // convertSubjects
+    if(isset($row['subjects'])){
+      $row['subjects'] = explode(',', ($row['subjects']));
     }
-    return $list;
+    return $row;
   }
 
 }

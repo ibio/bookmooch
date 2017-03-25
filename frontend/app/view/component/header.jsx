@@ -61,11 +61,11 @@ export default class Header extends React.Component {
   _handleLoginClick(e){
   	if(this._authModel.isLogin()){
   		// logout
-  		this._authModel.logout(function(response){
-  			// NOTICE: needs to set '/' in order to refresh the page to update current header
-  			document.location.href = '/';
-  		}, this);
+  		this._authModel.logout();
+  		this._authModel.setLastSession({});
+  		document.location.href = this._assembleLink(Config.NAV_HOME);
   	}else{
+  		this._authModel.setLastSession({lastUrl: document.location.href});
   		document.location.href = this._assembleLink(Config.NAV_LOGIN);
   	}
   }

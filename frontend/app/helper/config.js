@@ -8,16 +8,15 @@ data.HOME = _info.home;
 data.STATIC_ROOT = _info.staticRoot;
 data.FEATURED_TAG = _info.featuredTag;
 data.IS_LOCALSHOT = data.ROOT === '';
+data.CLIENT_ID = 'a6yJXzbUOYO6o4jC1Ccqg3beJik4cQLg';
+data.DOMAIN = 'ibio.auth0.com';
 
-data.URL_LATEST_BOOKS = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '?controller=book&action=get_latest';
-data.URL_BOOKS = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '?controller=book&action=get';
-data.URL_GET_BOOK = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '?controller=book&action=get_by_id';
-data.URL_SEARCH_BOOKS = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '?controller=book&action=search';
-data.URL_LOGIN = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '?controller=auth&action=login';
-data.URL_LOGOUT = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '?controller=auth&action=logout';
-data.URL_SAVE_ORDER = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '?controller=order&action=save';
-data.URL_GET_ORDER = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '?controller=order&action=get_by_user';
-
+data.URL_LATEST_BOOKS = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '/book/get_latest';
+data.URL_BOOKS = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '/book/get';
+data.URL_GET_BOOK = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '/book/get_by_id';
+data.URL_SEARCH_BOOKS = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '/book/search';
+data.URL_SAVE_ORDER = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '/secured/order/save';
+data.URL_GET_ORDER = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '/secured/order/get_by_user';
 
 data.DIR_RULE = '#';
 

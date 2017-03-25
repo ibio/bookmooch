@@ -90,7 +90,7 @@ export default class Checkout extends ProxyModel{
 	getOrder(silent, callback, scope){
 		// success
 		this.get(Config.URL_GET_ORDER, this._userData.token, function(response){
-			this.userOrderList = response.data;
+			this.userOrderList = response.data || [];
 			if(!silent){
 				this.notify();
 			}

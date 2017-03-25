@@ -7,12 +7,12 @@ use application\helper\HeaderFinder;
 
 class Auth extends Router{
 
-  public function login($get, $post){
+  public function login(){
     $this->_controller->prepareDatabase();
     $model = $this->_controller->getDAO('UserModel');
     // test only
-    // $result = $model->login($get['email'], $get['password']);
-    $result = $model->login($post['email'], $post['password']);
+    // $result = $model->login($_GET['email'], $_GET['password']);
+    $result = $model->login($_POST['email'], $_POST['password']);
 
     // set header
     if($result['isLogin']){
@@ -22,7 +22,7 @@ class Auth extends Router{
     Pager::output(0, $result, $model->error(), $this);
   }
 
-  public function logout($get, $post){
+  public function logout(){
     $this->_controller->prepareDatabase();
     $userModel = $this->_controller->getDAO('UserModel');
     $token = HeaderFinder::token(HeaderFinder::get('Authorization'));

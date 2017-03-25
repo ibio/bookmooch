@@ -85,12 +85,13 @@ export default class Checkout extends StickySide{
         }, this);
       }
     }else{
+      this._authModel.setLastSession({lastUrl: document.location.href});
       document.location.href = [Config.DIR_RULE, Config.NAV_LOGIN].join('/');
     }
   }
 
 	render(){
-    var btnView;
+    var btnView, btnClassNames;
     var subAmount = 0;
     var checkoutItemListView = this.state.cartItemList.map(function (item, index) {
       const quantity = item.quantity > 9 ? item.quantity : '0' + item.quantity;
@@ -121,8 +122,10 @@ export default class Checkout extends StickySide{
     //
     if(this._authModel.isLogin()){
       btnView = 'Checkout';
+      btnClassNames = 'btn btn-primary btn-block btn-checkout';
     }else{
       btnView = 'Login to checkout';
+      btnClassNames = 'btn btn-warning btn-block btn-checkout';
     }
     //
     return(
@@ -134,7 +137,7 @@ export default class Checkout extends StickySide{
         <footer>
           <h5>Subtotal: <b>${subAmount}</b></h5>
         </footer>
-        <button className="btn btn-primary btn-block btn-checkout" onClick={this._handleCheckoutClick.bind(this)}>{btnView}</button>
+        <button className={btnClassNames} onClick={this._handleCheckoutClick.bind(this)}>{btnView}</button>
       </div>
 		);
 	}

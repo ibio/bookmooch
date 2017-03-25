@@ -572,6 +572,9 @@
 .login {
   margin-top: 100px;
   margin-bottom: 300px; }
+  .login .auth0-title {
+    text-align: center;
+    margin-top: 50px; }
   .login .form-signin {
     max-width: 330px;
     padding: 15px;
