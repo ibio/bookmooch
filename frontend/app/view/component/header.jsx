@@ -103,7 +103,7 @@ export default class Header extends React.Component {
 			        <li className="dropdown">
 			          <a href="javascript:void(0);" target="_self" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us <span className="caret"></span></a>
 			          <ul className="dropdown-menu">
-			            <li><a target="_self" href="mailto:zhxm68@gmail.com?Subject=Hello%20from%20DatabaseProject">Xiaoming</a></li>
+			            <li><a target="_self" href="mailto:zhxm68@gmail.com?Subject=Hello%20from%20CISC6345Project">Xiaoming</a></li>
 			            <li><a target="_self" href="http://www.dsm.fordham.edu/~yoneda/">Ken</a></li>
 			            <li><a target="_self" href="https://ibio.github.io">Tan</a></li>
 			          </ul>

@@ -33,7 +33,7 @@ export default class Footer extends React.Component {
 							<p>
 								<a href="http://bookmooch.com/">The real BookMooch Website</a>
 								<span>/</span>
-								<a href="http://storm.cis.fordham.edu/~yli/CISC6345Spring17.html">For Advanced Database System Class</a>
+								<a href="http://storm.cis.fordham.edu/~yli/CISC6345Spring17.html">For CISC6345(Advanced Database System) Project</a>
 							</p>
 						</div>
 						<div className="pull-right socialmedia">
