@@ -28,7 +28,7 @@ Or use any local http server to visit it.
 ### backend
 ```
 git clone https://github.com/ibio/expense-tracker.git
-cd front-end-test/interface
+cd bookmooch/interface
 composer install (you may need to install composer first)
 ```
 
