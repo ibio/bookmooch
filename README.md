@@ -24,6 +24,11 @@ Or use any local http server to visit it.
 git clone https://github.com/ibio/expense-tracker.git
 cd bookmooch/interface
 composer install (you may need to install composer first)
+
+php -S localhost:3001
+
+curl --request GET \
+  --url http://localhost:3001/book/get
 ```
 
 ### python crawler
