@@ -37,10 +37,11 @@ see python-worldcat/readme.txt for details
 
 ## Main features:
 * ajax json api to get backend RESTful Data
+* use Access-Control-Allow-Origin in .htaccess file to do cross-domain
 * standard JWT RESTFul token API architecture
 * scrapy for crawling web pages
 * responsive design (mobile friendly)
-* React JS single page application
+* React JS single page application with MVC architecture 
 
 
 ### Browser Compatibility:
