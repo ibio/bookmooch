@@ -1,13 +1,13 @@
 # bookmooch
 An online bookstore prototype with multiple users login and JWT RESTful api implementation. 
 
-Online Demo: http://us.ypseek.com/labs/2017/bookmooch/
-
-Main features:
 * use scrapy to crawl worldcat book pages
 * use php to show those book data
 * Users can login (RESTful non-cookie)
 * User can submit book orders
+
+Online Demo: http://us.ypseek.com/labs/2017/bookmooch/
+
 
 Test accounts:
 * zhxm68@gmail.com zz
