@@ -3,19 +3,13 @@ An online bookstore prototype with multiple users login and JWT RESTful api impl
 
 * use scrapy to crawl worldcat book pages
 * use php to show those book data
-* Users can login (RESTful non-cookie)
+* Users can login (auth0 integration)
 * User can submit book orders
 
 Online Demo: http://us.ypseek.com/labs/2017/bookmooch/
 
 
-Test accounts:
-* zhxm68@gmail.com zz
-* kyoneda@fordham.edu abc123456
-* ytan25@fordham.edu abc123456
-* ken.yoneda92@gmail.com abc123456
-
-Run locally
+## Run locally
 ### frontend
 ```
 git clone https://github.com/ibio/bookmooch.git
@@ -35,10 +29,10 @@ composer install (you may need to install composer first)
 ### python crawler
 see python-worldcat/readme.txt for details
 
-## Main features:
+## Main features
 * ajax json api to get backend RESTful Data
-* use Access-Control-Allow-Origin in .htaccess file to do cross-domain
-* standard JWT RESTFul token API architecture
+* use Access-Control-Allow-Origin to do CORS
+* auth0 login integration (standard JWT RESTFul token API architecture)
 * scrapy for crawling web pages
 * responsive design (mobile friendly)
 * React JS single page application with MVC architecture 
@@ -51,5 +45,13 @@ see python-worldcat/readme.txt for details
 * iPHone 6
 
 
-__NOTICE__: this is just a fullstack project for my course CISC6345 Advanced Database Systems. Also, BookMooch is an trademark, and here it's just for study purpose only. In this small project, I just developed it for demonstrating my ability 1) to learn new things very fast, and 2) my coding philosophy -- get it done, and then progressive enhancement. I used total around 30 hours to get this done.
+## About this hands-on project
+__NOTICE__: this is a fullstack project for my course CISC6345 Advanced Database Systems. Also, BookMooch is an trademark, and here it's for study purpose only. In this small project, I just developed it for demonstrating my ability 1) to learn new things very fast, and 2) my coding philosophy -- get it done, and then progressive enhancement. 
+
+### Developing time distribution
+I used total around 38 hours to get this done.
+* frontend: 10hr
+* crawling: 10hr
+* backend: 10hr
+* auth0: 8hr
 
