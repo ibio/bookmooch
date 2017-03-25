@@ -1,0 +1,125 @@
+// partial style
+@import 'global';
+
+
+.home{
+	margin-top: 60px;
+	a{transition: color .3s ease-in;}
+	a:active{color: $linkActiveColor;}
+	a:hover{color: $linkHoverColor;}
+
+	.entry-meta{
+		$textColor: #999;
+		margin-top: 20px;
+		margin-bottom: 35px;
+		list-style-type: none; padding: 0; color: $textColor;
+		li{
+			float: left;
+			a, a:link, a:visited, a:active, a:focus {color: $textColor}
+			a:hover {color: $linkHoverColor;}
+		}
+		li::before{content: '/'; margin: 0 5px;}
+		li:first-child::before{content: ''; margin: 0;}
+		
+	}
+
+	.category-title{
+		position: relative;
+		margin-top: 20px;
+		margin-bottom: 30px;
+		h3{display: inline-block; position: relative; background-color: white; margin: 0; padding: 0; padding-right: 15px;}
+		&:before{content: ''; position: absolute; top: 49%; border-top: 1px solid #EEE; width: 100%;}
+	}
+
+	.category-image{margin-bottom: 30px;}
+	.category-intro{
+		h4{margin: 0; margin-bottom: 20px;}
+		.entry-meta{margin-top: 10px; margin-bottom: 20px;}
+	}
+
+	.category-posts{
+		.entry-image{float: left; width: 50%; padding-right: 20px;}
+		.entry-detail{
+			float: left;
+			width: 50%;
+			.entry-title{
+				h4{
+					margin:0;
+					line-height: 1.5;
+				}
+			}
+		}
+		.entry-meta{margin: 0 0 20px 0;}
+		
+		hr{
+			border-top-color: rgb(229, 229, 229);
+			border-top-style: dashed;
+			border-top-width: 1px;
+		}
+	}
+
+	.latest-posts{
+		img{ transition: transform .2s ease-in-out;}
+		.post-item{
+			height: 350px;
+			.entry-image{
+				text-align: center;
+				a{
+					display: inline-block;
+					height: 190px; 
+					background-color: black; 
+					overflow: hidden;
+					&:hover img {transform: scale(1.15);}
+				}
+			}
+			.entry-detail{
+				.entry-title{
+					h4{
+						margin:0; margin-top:10px; line-height: 1.5;
+					}
+					h5{margin:5px 0; color: gray;}
+				}
+			}
+
+		}
+	}
+
+	.page-nav{
+		text-align: center;
+	}
+	
+}
+
+@media (max-width: $screen-xs-max){
+.home{
+	margin-top: 60px;
+
+	.category-posts{
+		.screen-xs-max-image{margin-bottom: 20px;}
+		&>div{margin-bottom: 20px;}
+	}
+
+	.latest-posts{
+		.post-item{
+			margin-bottom: 40px;
+			height: unset;	
+			.entry-image{
+				a{height: unset;}
+			}
+		}
+	}
+
+}
+
+}
+
+@media (max-width: $screen-xs-max){
+.home{
+	margin-top: 120px;
+}
+
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-lg-min) {}

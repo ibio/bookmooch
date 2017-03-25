@@ -1,0 +1,93 @@
+// partial styles
+// @import 'variables';
+@import '../global.scss';
+
+$mainHeight: 60px;
+$secondHeight: 42px;
+
+.header{
+	height: $mainHeight;
+	background-color: #689a9b;
+	border-radius: 0;
+	border: 0;
+	transition: height .4s ease, opacity .3s ease;
+	
+	.toggle-button{
+		margin-top: ($mainHeight - 34px) / 2;
+	}
+
+	.logo{
+		height: $mainHeight; line-height: $mainHeight; padding: 0 30px; transition: height .4s ease;
+		img {height: 100%;}
+	}
+
+	.search-box{
+		margin-top: 13px; 
+		input{border-radius: 0; width: 350px;}
+		button{border-radius: 0; height: 34px;}
+	}
+
+	.main-menu{
+		margin-right: 15px;
+		li{
+			a {
+				height: $mainHeight; line-height: $mainHeight; padding: 0 15px; font-family: Raleway,sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+				transition: line-height .4s ease, color .4s ease-in-out;
+				&:link, &:visited, &:active{color: white;}
+				&:hover{color: $linkHoverColor; }
+			}
+			&.active {
+				a, a:hover{color: $linkHoverColor; background-color: unset;}
+			}
+			&.open{
+				a, a:link, a:visited, a:hover, a:active, a:focus{color: $linkHoverColor; background-color: unset;}	
+			}
+
+			.dropdown-menu {
+				border-radius: 0;
+				li{
+					a {
+						height: $secondHeight; line-height: $secondHeight; transition: margin-left, .2s ease-out;
+						&:hover{background-color: #ddd; padding-left: 25px;}
+					}
+				}
+			}
+		}
+	}
+
+}
+
+
+
+
+@media (max-width: 768px){
+.header{
+	height: auto;
+	// background-color: #666 !important;
+
+	.search-box{
+		input{width: 100%;}
+	}
+
+	.main-menu {
+	  margin: 0;
+	  li{
+	  	a{
+	  		$height: 30px;
+		  	height: $height; line-height:$height;
+		  }
+
+		  .dropdown-menu {
+				li{
+					a {
+						height: 25px; line-height: 25px; transition: margin-left, .2s ease-out;
+						&:hover{background-color: #ddd; padding-left: 25px;}
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+}

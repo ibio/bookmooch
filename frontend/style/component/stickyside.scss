@@ -1,0 +1,18 @@
+// partial style
+@import '../global';
+
+
+.stickyside{
+	z-index: 100;
+	.side-title{
+		margin-top: 20px;
+		font-size: 15px;
+		font-weight: 600;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+	.side-intro{
+		margin-bottom: 30px;
+	}
+
+}

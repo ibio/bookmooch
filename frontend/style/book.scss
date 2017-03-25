@@ -1,0 +1,98 @@
+// partial style
+@import 'global';
+
+
+.book{
+	margin-top: 80px;
+	a{transition: color .3s ease-in;}
+	a:active{color: $linkActiveColor;}
+	a:hover{color: $linkHoverColor;}
+
+	.title{
+		color: #444;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-bottom: 50px;
+	}
+
+	.copy-link{
+		button{margin-left: 5px;}
+	}
+
+	.entry-meta{
+		$textColor: #999;
+		margin-top: 20px;
+		margin-bottom: 35px;
+		list-style-type: none; padding: 0; color: $textColor;
+	}
+
+	.entry-content{
+		position: relative;
+		h4{margin-top: 0;}
+		p {line-height: 1.8;}
+
+		img{
+			display: block;
+		  max-width: 100%;
+		  height: auto;
+		}
+
+		.tagcloud{
+			margin-bottom: 5px;
+			a, a:link, a:visited, a:active, a:focus {
+				float: left;
+				display: block;
+				margin-right: 4px;
+				margin-bottom: 4px;
+				padding: 3px 6px;
+				border: 1px solid #E5E5E5;
+				font-size: 13px !important;
+				color: #666;
+				border-radius: 2px;
+				text-decoration: none;
+				transition: all .3s ease-in-out;
+			}
+			a:hover{color: $linkHoverColor; border-color: $linkHoverColor;}
+		}
+
+		.social-share{
+			div{
+				a, a:link, a:visited, a:active, a:focus{float: left; display: block; color:rgb(85, 85, 85); text-align: center; text-decoration: none;}
+			}
+		}
+	}
+
+	.related-title{font-size: 18px; font-weight: 600; margin-top: 50px; margin-bottom: 30px;}
+
+	
+
+	.post-author{
+		margin-top: 40px;
+		.author-image {width: 84px; height: 84px; float: left; margin-right: 15px;}
+	}
+
+	.related-posts{
+		.entry-image{}
+		.entry-detail{
+			text-align: center;
+		}
+		.entry-meta{margin: 0 0 20px 0;}
+		
+		hr{
+			border-top-color: rgb(229, 229, 229);
+			border-top-style: dashed;
+			border-top-width: 1px;
+		}
+	}
+
+}
+
+
+@media (max-width: $screen-xs-max){
+.book{
+	margin-top: 120px;
+	.title{font-size: 18px; margin-bottom: 30px;}
+}
+
+}
+

@@ -1,0 +1,15 @@
+// partial styles for global variables
+// those are global settings: variables / mixins
+// usage: @import 'global';
+
+$linkActiveColor: #1ABC9C;
+$linkHoverColor: #0BD3D3;
+$screen-xs-max: 767px;
+$screen-sm-min: 768px;
+$screen-sm-max: 991px;
+$screen-md-min: 992px;
+$screen-md-max: 1119px;
+$screen-lg-min: 1200px;
+
+$canvas-theme-path: '~res/canvas-theme/';
+$owl-carousel-path: '~res/owlcarousel/';

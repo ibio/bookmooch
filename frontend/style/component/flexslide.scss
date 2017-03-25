@@ -1,0 +1,70 @@
+// partial styles
+// @import 'variables';
+@import '../global.scss';
+
+
+.flex-slide{
+	position: relative;
+	color: #444;
+	margin-top: 20px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+	.slide-box{
+		width: 100%;
+		height: 450px;
+		overflow: hidden;
+		margin-bottom: 2px;
+		a{
+			img{width: 100%; opacity: 0; transition: opacity .3s ease-in-out;}
+		}
+	}
+	figcaption{
+		position: absolute;
+		width: 100%;
+		height: 50px;
+		h2{
+			padding: 20px;
+			font-size: 17px;
+			font-weight: 600;
+			margin: 0;
+			color: #F5F5F5;
+    	text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+		}
+	}
+	ul{
+		list-style-type: none;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin: 0;
+		padding: 0;
+		height: 92px;
+		li{
+			border-right: 2px solid white;
+			width: 100%;
+			overflow: hidden;
+			background-color: white;
+			&:last-child{border-right: 0;}
+			a{
+				img{height: 100%; max-width: unset; opacity: .5; transition: opacity .3s ease-in-out;}
+				&:hover{
+					img{opacity: 1;}
+				}
+				&.active{
+					img{opacity: 1;}	
+				}
+			}
+		}
+	}
+}
+
+
+@media (max-width: $screen-xs-max){
+.flex-slide{
+	.slide-box{
+		height: 225px;
+	}
+}
+
+}

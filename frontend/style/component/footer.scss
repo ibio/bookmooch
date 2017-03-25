@@ -1,0 +1,93 @@
+// footer
+@import '../global';
+
+.footer{
+	// height: 500px;
+	a{
+		color: #777; 
+		&:hover	{color: #555;}
+		transition: all .2s ease-in-out;
+	}
+	color:#777; text-align:justify; background-color: #292929;
+
+	.info-box{
+		background-color: #333;
+		padding-top: 50px;
+		padding-bottom: 20px;
+
+		.slogan{
+			img{width: 228px;}
+			p{font-size: 24px; margin-top: 20px;}
+		}
+
+		.menu{
+			margin-top: 20px;
+			h4{text-transform: uppercase; color: #DDD; margin-bottom: 25px; font-size: 15px; font-weight: 600; letter-spacing: 2px;}
+			ul{
+				list-style-type: none; padding-left: 0;
+				li{
+					padding: 4px;
+					 a {
+						background: url($canvas-theme-path + 'images/icons/widget-link-dark@2x.png') left top no-repeat;
+						background-size: 4px 20px;
+						color: #CCC;
+						font-size: 14px;
+						padding-left: 12px;
+						&:hover{color: #AAA;}
+					}
+				}
+			}
+		}
+
+		.subscribe-form{
+			h5{color: #EEE;}
+			form {
+				.input-group-addon{color: #999; background-color: rgba(0,0,0,0.35); border-color: rgba(0,0,0,0.25);}
+				.form-control{color: #999; background-color: rgba(0,0,0,0.2); border-color: rgba(0,0,0,0.25);}
+			}
+		}
+		.followup{
+			margin-top: 20px;
+			a, a:link, a:visited, a:active, a:focus{float: left; display: block; margin-right: 10px; color:#ccc; text-align: center; text-decoration: none;}
+			a:hover{color: #555;}
+			.link-text{text-align: left !important;}
+		}
+	}
+
+	.social-box{
+		padding: 30px 0;
+		.copyright{
+			a{border-bottom: 1px dotted #444;}
+			span{padding: 0 5px;}
+		}
+		.socialmedia{
+			.social-share{
+				div{
+					a, a:link, a:visited, a:active, a:focus{float: left; display: block; color:rgb(85, 85, 85); text-align: center; text-decoration: none;}
+				}
+			}
+			.support{
+				padding-left: 20px;
+				a > span {padding-right: 5px;}
+			}
+		}
+		hr{border-top-color: rgba(255,255,255,0.1);}
+		.declaration{
+			margin: 60px 0; text-align:justify;
+			a{color: $linkActiveColor; &:hover{color: $linkHoverColor;}}
+		}
+	}
+}
+
+@media(max-width: $screen-xs-max){
+	.info-box{
+		.menu{
+			h4{margin-bottom: 10px !important;}
+			ul{margin-bottom: 25px;}
+		}
+	}
+	.social-box{
+		.copyright{float: none !important; text-align: center;}
+		.socialmedia{float: none !important; margin: 0 auto; width: 170px; p{text-align: center;}}
+	}
+}

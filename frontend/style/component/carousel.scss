@@ -1,0 +1,44 @@
+// partial styles
+// @import 'variables';
+@import '../global.scss';
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+$height: 400px;
+
+/* Carousel base class */
+.carousel {
+  height: $height;
+  margin-bottom: 60px;
+
+  .carousel-inner {
+      /* Declare heights because of positioning of img element */
+    .item {
+      height: $height;
+      background-color: #777;
+      overflow: hidden;
+      img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: auto;
+      }
+      /* Since positioning the image, we need to help out the caption */
+      .carousel-caption {
+        z-index: 10;
+        // h1, h2 {color: black; text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6)}
+      }
+    }
+  }  
+
+}
+
+
+@media (max-width: $screen-xs-max){
+.carousel{
+  display: none;
+}
+
+}
+

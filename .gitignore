@@ -1,0 +1,6 @@
+.DS_Store
+frontend/node_modules
+interface/vendor
+python-worldcat/cache
+
+

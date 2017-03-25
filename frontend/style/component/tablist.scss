@@ -1,0 +1,46 @@
+// partial styles
+// @import 'variables';
+@import '../global.scss';
+
+
+
+.tablist{
+	h4 {text-transform: uppercase;}
+	.tab-buttons{
+		padding-left: 15px;
+		li{
+			a{
+				$height: 40px;
+				$bordrColor: #ddd;
+
+				margin: 0;
+				padding: 0 15px;
+				color: #444;
+				height: $height;
+				line-height: $height;
+				background-color: #F2F2F2;
+				font-size: 14px;
+				font-weight: 700;
+				border-radius: 0;
+				border: 1px solid $bordrColor;
+			}
+			&:not(:last-child) {
+				a{border-right: 0;}
+			}
+
+			&.active{
+				a{
+					background-color: white !important;
+					border-bottom: 0;
+				}
+			}
+
+		}
+	}
+	
+	.tab-content{
+		padding-top: 20px;
+
+	}
+
+}

@@ -1,0 +1,122 @@
+// partial styles
+@import 'global';
+
+// NOTICE: in order to avoid duplicate, just import those files once at entry point
+// be careful relative urls, it's relative to entry point file(game.scss)
+@import 'canvas-theme/variables';
+@import 'canvas-theme/mixins';
+
+@import 'canvas-theme/font-icons';
+@import 'canvas-theme/shortcodes/social-icons';
+@import 'owlcarousel/owl.carousel';
+// @import 'owlcarousel/owl.theme.default';
+@import 'owlcarousel/owl.theme.green';
+
+// change the navbar's breakpoint to $screen-lg-min
+@media (max-width: $screen-lg-min) {
+  .navbar-header {
+    float: none;
+  }
+  .navbar-left,.navbar-right {
+    float: none !important;
+  }
+  .navbar-toggle {
+    display: block;
+  }
+  .navbar-collapse {
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+  }
+  .navbar-collapse.collapse {
+    display: none!important;
+  }
+  .navbar-nav {
+    float: none!important;
+    margin-top: 7.5px;
+  }
+  .navbar-nav>li {
+    float: none;
+  }
+  .navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .collapse.in{
+    display:block !important;
+  }
+}
+
+
+body{
+	line-height: 1.5;
+	color: #555;
+	font-family: Lato,sans-serif;
+}
+
+a{
+	// transition: color, .2s ease-out;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+.ellipsis{
+	text-overflow:ellipsis; 
+	overflow:hidden; 
+	white-space:nowrap;
+}
+
+
+// Intrinsic Ratio Component
+.intrinsic {
+  // Make sure <picture> is set to block;
+  // Width is governed by parentNode
+  display: block; 
+
+  // Intrinsic Ratio Box
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding-top: 100%; // Default to square
+  
+  // Custom Styling
+  background: #f0f0f0;
+  
+  // Some ratios; 1:1, 4:3, 16:9
+  &.intrinsic--square {
+    padding-top: 100%;
+  }
+
+  &.intrinsic--4x3 {
+    padding-top: 75%;
+  }
+
+  &.intrinsic--16x9 {
+    padding-top: 56.25%
+  }
+
+  &.intrinsic--9x16 {
+    padding-top: 156.25%
+  }
+  
+  // Force the item to fill the space.
+  .intrinsic-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.ellipsis{
+  text-overflow:ellipsis; 
+  overflow:hidden; 
+  white-space:nowrap;
+}
+

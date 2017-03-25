@@ -1,0 +1,10 @@
+{
+    "require": {
+        "lcobucci/jwt": "^3.2",
+        "ibio/weemvc-php": "^1.0.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0",
+        "guzzlehttp/guzzle": "^6.2"
+    }
+}
