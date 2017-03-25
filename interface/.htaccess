@@ -1,0 +1,12 @@
+# BEGIN CORS
+Header always set Access-Control-Allow-Origin "*"
+Header always set Access-Control-Max-Age "1000"
+Header always set Access-Control-Allow-Headers "X-Requested-With, Content-Type, Token, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding"
+Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, DELETE, PUT"
+# http://stackoverflow.com/questions/4369987/jquery-getresponseheader-always-returns-undefined
+Header always set Access-Control-Expose-Headers "Authorization"
+
+# RewriteEngine On                  
+# RewriteCond %{REQUEST_METHOD} OPTIONS 
+# RewriteRule ^(/.*)$ blank.php [QSA,L]
+# END CORS
