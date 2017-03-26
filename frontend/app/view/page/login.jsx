@@ -21,7 +21,7 @@ export default class Login extends React.Component{
 
 	componentDidMount(){
 		$(window).scrollTop(0);
-		this._authModel.login(this._onLoginCallback.bind(this));
+		this._handleLoginClick();
   }
 
   _onLoginCallback(){
@@ -35,12 +35,17 @@ export default class Login extends React.Component{
   	document.location.href = url;
   }
 
+  _handleLoginClick(e){
+  	this._authModel.login(this._onLoginCallback.bind(this));
+  }
+
 	render(){
 		return(
 			<div>
 				<header><Header {...this.props} /></header>
 				<main className="container login">
 					<h2 className="auth0-title">{this.state.tip}</h2>
+					<p className="text-center auth0-button"><button className="btn btn-primary" onClick={this._handleLoginClick.bind(this)}>Open popup to login</button></p>
 				</main>
 				<footer ref="footer"><Footer {...this.props} /></footer>
 			</div>

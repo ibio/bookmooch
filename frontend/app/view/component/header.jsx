@@ -63,7 +63,8 @@ export default class Header extends React.Component {
   		// logout
   		this._authModel.logout();
   		this._authModel.setLastSession({});
-  		document.location.href = this._assembleLink(Config.NAV_HOME);
+  		// make sure trigger the router-change event
+  		document.location.href = this._assembleLink('');
   	}else{
   		this._authModel.setLastSession({lastUrl: document.location.href});
   		document.location.href = this._assembleLink(Config.NAV_LOGIN);
