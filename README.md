@@ -1,5 +1,5 @@
 # bookmooch
-An online bookstore prototype with multiple users login and JWT RESTful api implementation. 
+An online bookstore prototype with Auth0 login implementation. 
 
 * use scrapy to crawl worldcat book pages
 * use php to show those book data
