@@ -8,14 +8,14 @@ import Header from 'view/component/header';
 import Footer from 'view/component/footer';
 import Stickyside from 'view/component/stickyside';
 import BookModel from 'model/book';
-import Style from 'style/search.scss';
+import Style from 'style/author.scss';
 
-export default class Search extends React.Component{
+export default class Author extends React.Component{
 	constructor(props){
     super(props);
     this._bookModel = new BookModel();
     this._bookModel.subscribe(function(){
-    	this.setState({resultBookList:this._bookModel.latestBookList, totalPages:this._bookModel.latestBookPages});
+    	this.setState({resultBookList:this._bookModel.authorBookList, totalPages:this._bookModel.authorBookPages});
     }, this);
 		//instead of return in getInitialState 
 		this.state = {
@@ -43,7 +43,7 @@ export default class Search extends React.Component{
   	this.setState({resultBookList:[], currentPage});
   	// keyword
     if(this.props.navs[1]){
-    	this._bookModel.searchBookList(this.props.navs[1], 100, currentPage);
+    	this._bookModel.searchBookListByAuthor(this.props.navs[1], 100, currentPage);
     }
   }
 
@@ -96,16 +96,16 @@ export default class Search extends React.Component{
 		return(
 			<div>
 				<header><Header {...this.props} /></header>
-				<main className="container search">
+				<main className="container author">
 					<div className="row">
 						<div className="col-lg-9">
 							<div className="category-title">
-								<h3>Search Resoults</h3>
+								<h3>{this.props.navs[1]}</h3>
 							</div>
 							<div className="statistics">
 								<h5>
-									<span>Total Results: {this._bookModel.latestBooks}</span> 
-									<span>Total Pages: {this._bookModel.latestBookPages}</span>
+									<span>Total Books: {this._bookModel.authorBooks}</span> 
+									<span>Total Pages: {this._bookModel.authorBookPages}</span>
 								</h5>
 							</div>
 							<div className="row latest-posts">

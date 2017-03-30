@@ -23,10 +23,12 @@ export default class Book extends React.Component{
     this._bookModel = new BookModel();
     //
     this._bookModel.subscribe(function(){
-    	this.setState({bookDetail:this._bookModel.bookDetail});
+    	this.setState({bookDetail:this._bookModel.bookDetail,
+    								 authorBookList: this._bookModel.authorBookList});
     }, this);
 		//instead of return in getInitialState 
 		this.state = {
+			authorBookList: [],
 			bookDetail : {},
 		};
 	}
@@ -46,6 +48,8 @@ export default class Book extends React.Component{
   	const id = this.props.navs[1];
 		if(id){
 			this._bookModel.getBookDetail(id, false, function(){
+				// get related books
+				this._bookModel.searchBookListByAuthor(this._bookModel.bookDetail.author, 4, 1);
 				this._updatePageMeta();
     	}, this);
 		}
@@ -58,7 +62,7 @@ export default class Book extends React.Component{
   }
 
   _assembleBookLink(str){
-  	return [Config.DIR_RULE, Config.NAV_Book, str].join('/');
+  	return [Config.DIR_RULE, Config.NAV_BOOK, str].join('/');
   }
 
   _handleAddClick(book){
@@ -67,19 +71,25 @@ export default class Book extends React.Component{
 
 	render(){
 		var tagListView = [];
-		var featuredPostTop = {}, featuredPost0 = {}, featuredPost1 = {}, featuredPost2 = {}, featuredPost3 = {};
+		var cover = Config.STATIC_ROOT + '/res/coming-soon.jpg';
+		var featured0 = {cover}, featured1 = {cover}, featured2 = {cover}, featured3 = {cover};
 		//
 		if(this.state.bookDetail.subjects){
-			tagListView = this.state.bookDetail.subjects.map(function(item){
-				return(<a key={Util.uuid()} href="javascript:void(0);">{item}</a>);
+			this.state.bookDetail.subjects.forEach(function(item){
+				item = item || '';
+				// filter nonsense
+				const nonsense = ['view all subjects', ''];
+				if (nonsense.indexOf(item.toLowerCase()) === -1) {
+					tagListView.push(<a key={Util.uuid()} href="javascript:void(0);">{item}</a>);
+				}
 			});
 		}
-
-		if(this.state.authorPostList){
-			featuredPost0 = this.state.authorPostList[0] || {};
-			featuredPost1 = this.state.authorPostList[1] || {};
-			featuredPost2 = this.state.authorPostList[2] || {};
-			featuredPost3 = this.state.authorPostList[3] || {};
+		//
+		if(this.state.authorBookList){
+			featured0 = this.state.authorBookList[0] || {};
+			featured1 = this.state.authorBookList[1] || {};
+			featured2 = this.state.authorBookList[2] || {};
+			featured3 = this.state.authorBookList[3] || {};
 		}
 
 		return(
@@ -99,20 +109,17 @@ export default class Book extends React.Component{
 								    </picture>
 									</div>
 									<div className="col-sm-8">
-										<h4>Author: <em>{this.state.bookDetail.author}</em></h4>
-										<h4>Tags:</h4>
+										<h4>By <a href={[Config.DIR_RULE, Config.NAV_AUTHOR, this.state.bookDetail.author].join('/')} target="_self"><em>{this.state.bookDetail.author}</em></a></h4>
+										<div dangerouslySetInnerHTML={{__html:this.state.bookDetail.summary}}></div>
+										<p><a href={this.state.bookDetail.url} target="_blank">More Detail</a></p>
+										<h3>${this.state.bookDetail.price} <button className="btn btn-primary" onClick={this._handleAddClick.bind(this, this.state.bookDetail)} ><i className="glyphicon glyphicon-shopping-cart"></i> Add to Cart</button></h3>
+										<hr />
 										<div className="clearfix tagcloud">
 											{tagListView}
 										</div>
-										<hr />
-										<p>Description: {this.state.bookDetail.description}</p>
-										<p>Edition: {this.state.bookDetail.edition}</p>
-										<p>ISBN: {this.state.bookDetail.isbn}</p>
-										<p>OCLC: {this.state.bookDetail.oclc}</p>
+										<p>{this.state.bookDetail.description} | {this.state.bookDetail.edition}</p>
+										<p>ISBN: {this.state.bookDetail.isbn} | OCLC: {this.state.bookDetail.oclc}</p>
 										<p>Publisher: {this.state.bookDetail.publisher}</p>
-										<p><a href={this.state.bookDetail.url} target="_blank">More Detail</a></p>
-										<div dangerouslySetInnerHTML={{__html:this.state.bookDetail.summary}}></div>
-										<h3>${this.state.bookDetail.price} <button className="btn btn-warning" onClick={this._handleAddClick.bind(this, this.state.bookDetail)} ><i className="glyphicon glyphicon-shopping-cart"></i> Add to Cart</button></h3>
 									</div>
 								</div>
 
@@ -144,57 +151,57 @@ export default class Book extends React.Component{
 							<div className="row related-posts">
 								<div className="col-lg-3">
 									<div className="entry-image">
-										<a href={this._assembleBookLink(featuredPost0.slug)}>
+										<a href={this._assembleBookLink(featured0.id)}>
 											<picture className="intrinsic intrinsic--9x16">
-									      <source media="(min-width: 500px)" srcSet="res/coming-soon.jpg" />
+									      <source media="(min-width: 500px)" srcSet={featured0.cover} />
 									      <img alt="Featured Post" srcSet={Config.STATIC_ROOT + '/res/placeholder.png'} className="intrinsic-item img-rounded" />
 									    </picture>
 										</a>
 									</div>
-									<div className="entry-detail">
-										Coming Soon...
+									<div className="ellipsis entry-detail">
+										{featured0.title}
 									</div>
 								</div>
 								
 								<div className="col-lg-3">
 									<div className="entry-image">
-										<a href={this._assembleBookLink(featuredPost2.slug)}>
+										<a href={this._assembleBookLink(featured1.id)}>
 											<picture className="intrinsic intrinsic--9x16">
-									      <source media="(min-width: 500px)" srcSet="res/coming-soon.jpg" />
+									      <source media="(min-width: 500px)" srcSet={featured1.cover} />
 									      <img alt="Featured Post" srcSet={Config.STATIC_ROOT + '/res/placeholder.png'} className="intrinsic-item img-rounded" />
 									    </picture>
 										</a>
 									</div>
-									<div className="entry-detail">
-										Coming Soon...
+									<div className="ellipsis entry-detail">
+										{featured1.title}
 									</div>
 								</div>
 
 								<div className="col-lg-3">
 									<div className="entry-image">
-										<a href={this._assembleBookLink(featuredPost2.slug)}>
+										<a href={this._assembleBookLink(featured2.id)}>
 											<picture className="intrinsic intrinsic--9x16">
-									      <source media="(min-width: 500px)" srcSet="res/coming-soon.jpg" />
+									      <source media="(min-width: 500px)" srcSet={featured2.cover} />
 									      <img alt="Featured Post" srcSet={Config.STATIC_ROOT + '/res/placeholder.png'} className="intrinsic-item img-rounded" />
 									    </picture>
 										</a>
 									</div>
-									<div className="entry-detail">
-										Coming Soon...
+									<div className="ellipsis entry-detail">
+										{featured2.title}
 									</div>
 								</div>
 
 								<div className="col-lg-3">
 									<div className="entry-image">
-										<a href={this._assembleBookLink(featuredPost2.slug)}>
+										<a href={this._assembleBookLink(featured3.id)}>
 											<picture className="intrinsic intrinsic--9x16">
-									      <source media="(min-width: 500px)" srcSet="res/coming-soon.jpg" />
+									      <source media="(min-width: 500px)" srcSet={featured3.cover} />
 									      <img alt="Featured Post" srcSet={Config.STATIC_ROOT + '/res/placeholder.png'} className="intrinsic-item img-rounded" />
 									    </picture>
 										</a>
 									</div>
-									<div className="entry-detail">
-										Coming Soon...
+									<div className="ellipsis entry-detail">
+										{featured3.title}
 									</div>
 								</div>
 

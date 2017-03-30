@@ -8,6 +8,7 @@ import AuthModel from 'model/auth';
 import Home from 'view/page/home';
 import Book from 'view/page/book';
 import Search from 'view/page/search';
+import Author from 'view/page/author';
 import Login from 'view/page/login';
 import Dashboard from 'view/page/dashboard';
 
@@ -42,6 +43,9 @@ function render(){
 			break;
 		case Config.NAV_SEARCH:
 			node = <Search title={document.title} navs={obj.navs} nid={obj.nid} />;
+			break;
+		case Config.NAV_AUTHOR:
+			node = <Author title={document.title} navs={obj.navs} nid={obj.nid} />;
 			break;
 		case Config.NAV_LOGIN:
 			if(_authoMode.isLogin()){

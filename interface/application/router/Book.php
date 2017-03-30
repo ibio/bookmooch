@@ -47,7 +47,17 @@ class Book extends Router{
     //
     $model = $this->_controller->getDAO('BookModel');
     // get
-    Pager::output(0, $model->searchByTag($_GET['keyword'], $start, $length), $model->error(), $this);
+    Pager::output(0, $model->searchByTag($_GET['tag'], $start, $length), $model->error(), $this);
+  }
+
+  public function searchByAuthor(){
+    $this->_controller->prepareDatabase();
+    $start = $this->getStart($_GET['start']);
+    $length = $this->getLength($_GET['length']);
+    //
+    $model = $this->_controller->getDAO('BookModel');
+    // get
+    Pager::output(0, $model->searchByAuthor($_GET['author'], $start, $length), $model->error(), $this);
   }
 
   private function getStart($start){

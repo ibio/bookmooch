@@ -14,6 +14,9 @@ export default class BookModel extends ProxyModel {
 		this.latestBooks = 0;
 		this.latestBookPages = 0;
 		// TODO: this name needs to change
+		this.authorBookList = [];
+		this.authorBooks = 0;
+		this.authorBookPages = 0;
 		this.bookDetail = {};
 	}
 
@@ -70,15 +73,35 @@ export default class BookModel extends ProxyModel {
 		}, this);
 	}
 
-	searchBookListByTag(keyword, limit, page, silent, callback, scope){
+	searchBookListByTag(tag, limit, page, silent, callback, scope){
 		const start = (page - 1) * limit;
-		const url = Config.URL_BOOKS + '?length=' + limit + '&start=' + start;
+		const url = Config.URL_SEARCH_BOOKS_BY_TAG + '?tag=' + tag + '&length=' + limit + '&start=' + start;
 		this.get(url, null, function(response) {
-			var list;
+			var data, list;
 			response = response || {};
-			list = response.list || [];
-			this.latestBookList = this._createBookList(list);
-			this.latestBookPages = response.totalPages;
+			data = response.data || {};
+			list = data.list || [];
+			// ...
+			if(!silent){
+				this.notify();
+			}
+			callback && callback.call(scope);
+		}, function(response){
+			// "status":false,"code":401,
+		}, this);
+	}
+
+	searchBookListByAuthor(author, limit, page, silent, callback, scope){
+		const start = (page - 1) * limit;
+		const url = Config.URL_SEARCH_BOOKS_BY_AUTHOR + '?author=' + author + '&length=' + limit + '&start=' + start;
+		this.get(url, null, function(response){
+			var data, list;
+			response = response || {};
+			data = response.data || {};
+			list = data.list || [];
+			this.authorBookList = this._createBookList(list);
+			this.authorBooks = data.totalItems || 0;
+			this.authorBookPages = data.totalPages || 0;
 			if(!silent){
 				this.notify();
 			}

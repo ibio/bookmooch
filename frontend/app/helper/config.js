@@ -15,6 +15,8 @@ data.URL_LATEST_BOOKS = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '/boo
 data.URL_BOOKS = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '/book/get';
 data.URL_GET_BOOK = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '/book/get_by_id';
 data.URL_SEARCH_BOOKS = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '/book/search';
+data.URL_SEARCH_BOOKS_BY_TAG = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '/book/search_by_tag';
+data.URL_SEARCH_BOOKS_BY_AUTHOR = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '/book/search_by_author';
 data.URL_SAVE_ORDER = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '/secured/order/save';
 data.URL_GET_ORDER = data.IS_LOCALSHOT ? 'res/posts.json' : data.ROOT + '/secured/order/get_by_user';
 
@@ -27,6 +29,7 @@ data.NAV_DASHBOARD 	= 'dashboard';
 data.NAV_HOME 			= 'home';
 data.NAV_BOOK 			= 'book';
 data.NAV_SEARCH 		= 'search';
+data.NAV_AUTHOR 		= 'author';
 
 data.SECOND_NAV = {};
 
@@ -36,6 +39,7 @@ data.MENU = {};
 data.MENU[data.NAV_HOME] 				= 'Home - BookMooch';
 data.MENU[data.NAV_BOOK]				= 'Article - BookMooch';
 data.MENU[data.NAV_SEARCH]			= 'Search - BookMooch';
+data.MENU[data.NAV_AUTHOR]			= 'Author - BookMooch';
 data.MENU[data.NAV_LOGIN]				= 'Login - BookMooch';
 data.MENU[data.NAV_DASHBOARD]		= 'Dashboard - BookMooch';
 

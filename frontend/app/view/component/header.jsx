@@ -30,6 +30,7 @@ export default class Header extends React.Component {
   }
 
   _fillSearchBox(){
+  	// search page only
   	if(this.props.navs[0] === Config.NAV_SEARCH && this.props.navs[1]){
   		this.refs.keyword.value = this.props.navs[1];
   	}else{

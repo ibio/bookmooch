@@ -428,9 +428,10 @@
     color: #0BD3D3; }
   .book .title {
     color: #444;
-    text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 50px; }
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 30px; }
   .book .copy-link button {
     margin-left: 5px; }
   .book .entry-meta {
@@ -568,6 +569,76 @@
       margin-bottom: 40px;
       height: unset; }
       .search .latest-posts .post-item .entry-image a {
+        height: unset; } }
+.author {
+  margin-top: 60px; }
+  .author a {
+    transition: color .3s ease-in; }
+  .author a:active {
+    color: #1ABC9C; }
+  .author a:hover {
+    color: #0BD3D3; }
+  .author .category-title {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 10px; }
+    .author .category-title h3 {
+      display: inline-block;
+      position: relative;
+      background-color: white;
+      margin: 0;
+      padding: 0;
+      padding-right: 15px; }
+    .author .category-title:before {
+      content: '';
+      position: absolute;
+      top: 49%;
+      border-top: 1px solid #EEE;
+      width: 100%; }
+  .author .statistics {
+    margin-bottom: 30px; }
+    .author .statistics span:last-child {
+      margin-left: 20px; }
+  .author .category-image {
+    margin-bottom: 30px; }
+  .author .category-intro h4 {
+    margin: 0;
+    margin-bottom: 20px; }
+  .author .category-intro .entry-meta {
+    margin-top: 10px;
+    margin-bottom: 20px; }
+  .author .latest-posts {
+    margin-bottom: 20px; }
+    .author .latest-posts img {
+      transition: transform .2s ease-in-out; }
+    .author .latest-posts .post-item {
+      height: 350px; }
+      .author .latest-posts .post-item .entry-image {
+        text-align: center; }
+        .author .latest-posts .post-item .entry-image a {
+          display: inline-block;
+          height: 190px;
+          background-color: black;
+          overflow: hidden; }
+          .author .latest-posts .post-item .entry-image a:hover img {
+            transform: scale(1.15); }
+      .author .latest-posts .post-item .entry-detail .entry-title h4 {
+        margin: 0;
+        margin-top: 10px;
+        line-height: 1.5; }
+      .author .latest-posts .post-item .entry-detail .entry-title h5 {
+        margin: 5px 0;
+        color: gray; }
+  .author .page-nav {
+    text-align: center; }
+
+@media (max-width: 767px) {
+  .author {
+    margin-top: 120px; }
+    .author .latest-posts .post-item {
+      margin-bottom: 40px;
+      height: unset; }
+      .author .latest-posts .post-item .entry-image a {
         height: unset; } }
 .login {
   margin-top: 100px;

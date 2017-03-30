@@ -102,6 +102,11 @@ $router->get('/book/search_by_tag', function() use ($auth){
   $handle->searchByTag();
 });
 
+$router->get('/book/search_by_author', function() use ($auth){
+  $handle = new Book();
+  $handle->searchByAuthor();
+});
+
 $router->get('/secured/order/get_by_user', function() use ($auth){
   $userInfo = $auth->getUserInfo();
   $handle = new Auth0Order();

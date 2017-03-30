@@ -128,6 +128,19 @@ class BookModel extends DAO{
                 );
   }
 
+  public function searchByAuthor($keyword, $start, $length){
+    $where = "author LIKE '%$keyword%'";
+    
+    $count = $this->count('id', $where);
+    $totalItems = $count;
+    $totalPages = ceil($count / $length);
+
+    return array('totalItems' => $totalItems, 
+                 'totalPages' => $totalPages, 
+                 'list' => $this->getItems($this->query('*', $where, null, $start, $length)),
+                );
+  }
+
   /*
   public function deleteById($id){
     $id = $this->filterXSS($id);
