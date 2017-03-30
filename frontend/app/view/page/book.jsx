@@ -71,7 +71,7 @@ export default class Book extends React.Component{
 		//
 		if(this.state.bookDetail.subjects){
 			tagListView = this.state.bookDetail.subjects.map(function(item){
-				return(<a key={Util.uuid()} href="#">{item}</a>);
+				return(<a key={Util.uuid()} href="javascript:void(0);">{item}</a>);
 			});
 		}
 

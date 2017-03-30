@@ -15,7 +15,7 @@
   "author": "Ibio",
   "license": "ISC",
   "dependencies": {
-    "auth0-lock": "^10.13.0",
+    "auth0-lock": "^10.14.0",
     "babel-polyfill": "^6.22.0",
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
@@ -41,11 +41,11 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-webpack": "^2.0.1",
-    "node-sass": "^4.5.1",
+    "node-sass": "^4.5.2",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.13.2",
     "url-loader": "^0.5.8",
-    "webpack": "^2.3.0",
+    "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2"
   }
 }
