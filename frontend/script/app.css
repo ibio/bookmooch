@@ -56,6 +56,10 @@
 @media (max-width: 768px) {
   .header {
     height: auto; }
+    .header .logo {
+      padding: 0;
+      max-width: 250px;
+      height: auto; }
     .header .search-box input {
       width: 100%; }
     .header .main-menu {

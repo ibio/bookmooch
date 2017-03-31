@@ -11,15 +11,12 @@ export default class Footer extends React.Component {
     super(props);
 		//instead of return in getInitialState 
 		this.state = {
-			
+			//
 		};
 	}
 
 	componentDidMount(){
-		
-  }
-
-  componentWillUnmount (){
+		//	
   }
 	
 	render(){
@@ -29,12 +26,8 @@ export default class Footer extends React.Component {
 				<div className="container social-box">
 					<div className="clearfix">
 						<div className="pull-left copyright">
-							<p>Copyright © 2017 BookMooch* Study Purpose Only. All Rights Reserved.</p>
-							<p>
-								<a href="http://bookmooch.com/">The real BookMooch Website</a>
-								<span>/</span>
-								<a href="http://storm.cis.fordham.edu/~yli/CISC6345Spring17.html">For CISC6345(Advanced Database System) Project</a>
-							</p>
+							<p>BookMooch* For <a href="http://storm.cis.fordham.edu/~yli/CISC6345Spring17.html">CISC6345(Advanced Database System) Project</a> Study Purpose Only </p>
+							<p>The Real <a href="http://bookmooch.com/">BookMooch</a><span>/</span> Copyright © 2017 All Rights Reserved. </p>
 						</div>
 						<div className="pull-right socialmedia">
 							<div className="clearfix si-share si-borderless social-share">
@@ -58,9 +51,9 @@ export default class Footer extends React.Component {
 								</div>
 							</div>
 							<p className="support">
-								<a href="mailto:ibio520@hotmail.com">
+								<a href="mailto:ibio520@gmail.com">
 								  <span className="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-								  ibio520#hotmail.com
+								  ibio520#gmail.com
 								</a>
 							</p>
 						</div>

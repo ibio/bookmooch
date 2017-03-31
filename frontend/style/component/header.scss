@@ -65,6 +65,12 @@ $secondHeight: 42px;
 	height: auto;
 	// background-color: #666 !important;
 
+	.logo{
+		padding: 0;
+		max-width: 250px;
+		height: auto;
+	}
+
 	.search-box{
 		input{width: 100%;}
 	}
