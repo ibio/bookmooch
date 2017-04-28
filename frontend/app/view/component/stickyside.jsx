@@ -6,7 +6,7 @@ import Util from 'helper/util';
 import Config from 'helper/config';
 import Style from 'style/component/stickyside.scss';
 
-const STICKY_SIDE_TOP = 60;
+const STICKY_FIXED_TOP = 60;
 const SCREEN_LG_MIN = 1200;
 
 export default class StickySide extends React.Component{
@@ -14,8 +14,8 @@ export default class StickySide extends React.Component{
     super(props);
     this._$stickySide;
     this._sideOffset;
-    this._topY = 0;
-    this._parentY = 0;
+    this._posTopY = 0;
+    this._fixedTopY = STICKY_FIXED_TOP;
     this._height = 0;
     this._$bottom;
 	}
@@ -36,11 +36,11 @@ export default class StickySide extends React.Component{
   }
 
   // relative the next parent with non-static positioning.
-  // topY: the gap between stickySide and its parent
-  // parentY: the gap between stickySide's parent and the document
-  setTopPoint(topY, parentY){
-  	this._topY = topY;
-  	this._parentY = parentY;
+  // posTopY: the gap between stickySide and its parent
+  // fixedTopY: the gap between fixed stickySide and the document top (usually the header's height)
+  setTopPoint(posTopY, fixedTopY){
+  	this._posTopY = posTopY;
+  	this._fixedTopY = fixedTopY;
   }
 
   setHeight(x){
@@ -55,13 +55,13 @@ export default class StickySide extends React.Component{
   	const y = $(window).scrollTop();
   	var bottomEdge, actualY;
   	if(this._$bottom){
-  		bottomEdge = this._$bottom.offset().top - this._parentY - this._height;
-	  	if(y <= this._topY){
+  		bottomEdge = this._$bottom.offset().top - this._fixedTopY - this._height;
+	  	if(y <= this._posTopY){
 	  		this._$stickySide.css({position:'static'});
-	  	}else if(y > this._topY && y < bottomEdge){
-	  		this._$stickySide.css({position:'fixed', left:this._sideOffset.left, top: STICKY_SIDE_TOP, width: this._sideOffset.width});
+	  	}else if(y > this._posTopY && y < bottomEdge){
+	  		this._$stickySide.css({position:'fixed', left:this._sideOffset.left, top: this._fixedTopY, width: this._sideOffset.width});
 	  	}else{
-	  		actualY = bottomEdge - this._topY;
+	  		actualY = bottomEdge - this._posTopY;
 	  		this._$stickySide.css({position:'absolute', left:'', top:actualY});
 	  	}
   	}
