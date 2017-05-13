@@ -51,7 +51,7 @@ see python-worldcat/readme.txt for details
 
 
 ## About this hands-on project
-__NOTICE__: this is a fullstack project for my course CISC6345 Advanced Database Systems. Also, BookMooch is an trademark, and here it's for study purpose only. In this small project, I just developed it for demonstrating my ability 1) to learn new things very fast, and 2) my coding philosophy -- get it done, and then progressive enhancement. 
+__NOTICE__: this is a fullstack project for my course CISC6345 Advanced Database Systems. Also, BookMooch is an trademark, and here it's for study purpose only. In this small project, I just developed it for demonstrating my ability 1) to learn new things very fast, and 2) my coding philosophy -- get it done first, and then do progressive enhancement. 
 
 ### Developing time distribution
 I used total around 38 hours to get this done.
