@@ -6,7 +6,7 @@ An online bookstore prototype with Auth0 login implementation.
 * Users can login (auth0 integration)
 * User can submit book orders
 
-Online Demo: http://us.ypseek.com/labs/2017/bookmooch/
+More: https://ibio.github.io/#/bookmooch
 
 
 ## Run locally
