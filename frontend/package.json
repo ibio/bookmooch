@@ -15,7 +15,7 @@
   "author": "Ibio",
   "license": "ISC",
   "dependencies": {
-    "auth0-lock": "^10.14.0",
+    "auth0-lock": "^11.21.0",
     "babel-polyfill": "^6.22.0",
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
